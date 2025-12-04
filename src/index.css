@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 211 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 211 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom cyber colors */
+    --neon-blue: 211 100% 50%;
+    --neon-cyan: 185 100% 50%;
+    --cyber-dark: 222 47% 5%;
+    --cyber-navy: 222 47% 11%;
+    --cyber-grid: 217 33% 20%;
+
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--neon-blue)) 0%, hsl(var(--neon-cyan)) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(var(--cyber-dark)) 0%, hsl(var(--cyber-navy)) 100%);
+    
+    /* Glows */
+    --glow-blue: 0 0 20px hsl(var(--neon-blue) / 0.5), 0 0 40px hsl(var(--neon-blue) / 0.3);
+    --glow-cyan: 0 0 20px hsl(var(--neon-cyan) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
+    --glow-sm: 0 0 10px hsl(var(--neon-blue) / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background: hsl(var(--neon-blue) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--cyber-dark));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--neon-blue) / 0.5);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--neon-blue) / 0.7);
+  }
+}
+
+@layer utilities {
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--cyber-grid) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--cyber-grid) / 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .text-gradient {
+    background: var(--gradient-cyber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-border {
+    box-shadow: var(--glow-blue);
+    border: 1px solid hsl(var(--neon-blue) / 0.5);
+  }
+
+  .glow-text {
+    text-shadow: var(--glow-sm);
+  }
+
+  .neon-line {
+    height: 2px;
+    background: var(--gradient-cyber);
+    box-shadow: var(--glow-blue);
+  }
+
+  .cyber-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+
+  .cyber-card:hover {
+    border-color: hsl(var(--neon-blue) / 0.5);
+    box-shadow: var(--glow-sm);
+    transform: translateY(-4px);
+  }
+}
+
+@layer components {
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-typing {
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  .animate-scan-line {
+    animation: scan-line 8s linear infinite;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--neon-blue) / 0.4), 0 0 20px hsl(var(--neon-blue) / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.6), 0 0 40px hsl(var(--neon-blue) / 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: hsl(var(--neon-blue)) }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }

@@ -20,23 +20,7 @@ Web Security
 
 Kali Linux
 
-Full-stack backend development (Node.js, MongoDB)
 
-Building AI-powered security tools
-
-📂 Highlighted Projects
-
-Stickitize – Full-stack sticker ordering platform
-
-LogGazer – Intelligent log analysis tool
-
-Instagram Phishing Simulation Tool
-
-OCR Snip → Paste → Auto-Click Bot
-
-ChatGPT Headless Automation Tool
-
-APK Modification Projects
 
 🔗 Links
 

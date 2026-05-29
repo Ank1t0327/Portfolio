@@ -51,20 +51,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        neon: {
-          blue: "hsl(var(--neon-blue))",
-          cyan: "hsl(var(--neon-cyan))",
-        },
-        cyber: {
-          dark: "hsl(var(--cyber-dark))",
-          navy: "hsl(var(--cyber-navy))",
-          grid: "hsl(var(--cyber-grid))",
-        },
+        lab: {
+          purple: "hsl(267, 40%, 15%)", // Deep midnight purple
+          teal: "hsl(175, 100%, 40%)", // Neon teal
+          neon: "hsl(150, 100%, 50%)", // Hacker green accent
+          blue: "hsl(220, 80%, 60%)",
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        '4xl': '2rem',
       },
       keyframes: {
         "accordion-down": {
@@ -75,10 +73,30 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+        "type": {
+          "0%": { width: "0" },
+          "100%": { width: "100%" },
+        },
+        "blink": {
+          "0%, 100%": { borderColor: "transparent" },
+          "50%": { borderColor: "currentColor" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "type": "type 2s steps(40, end)",
+        "blink": "blink 1s step-end infinite",
       },
     },
   },

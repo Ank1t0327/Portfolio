@@ -56,6 +56,12 @@ export default {
           teal: "hsl(175, 100%, 40%)", // Neon teal
           neon: "hsl(150, 100%, 50%)", // Hacker green accent
           blue: "hsl(220, 80%, 60%)",
+        },
+        brand: {
+          purple: "hsl(267, 80%, 60%)",
+          teal: "hsl(175, 100%, 40%)",
+          neon: "hsl(150, 100%, 50%)",
+          blue: "hsl(220, 80%, 60%)",
         }
       },
       borderRadius: {

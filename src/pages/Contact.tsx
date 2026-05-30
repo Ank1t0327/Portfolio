@@ -15,7 +15,7 @@ export default function Contact() {
       setIsSubmitting(false);
       toast.success('Message transmitted securely.', {
         description: 'I will get back to you as soon as possible.',
-        icon: <Terminal className="h-4 w-4 text-neon-cyan" />,
+        icon: <Terminal className="h-4 w-4 text-theme-blue" />,
       });
       (e.target as HTMLFormElement).reset();
     }, 1500);
@@ -24,53 +24,53 @@ export default function Contact() {
   return (
     <PageTransition className="max-w-5xl mx-auto space-y-12">
       <div className="space-y-4 text-center">
-        <h1 className="text-4xl font-bold font-mono text-gradient inline-block">Establish Connection</h1>
-        <div className="neon-line w-48 mx-auto"></div>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold font-mono text-theme-text uppercase tracking-widest inline-block">Establish Connection</h1>
+        <div className="h-[1.5px] bg-theme-border w-48 mx-auto"></div>
+        <p className="text-theme-muted1 max-w-2xl mx-auto font-sans">
           Whether you have a question, an opportunity, or just want to say hi, my inbox is open.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 items-start pt-8">
-        <div className="space-y-8 animate-fade-in-up">
+        <div className="space-y-8">
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold font-mono text-foreground">Contact Info</h2>
+            <h2 className="text-2xl font-bold text-theme-text uppercase tracking-widest">Contact Info</h2>
             <div className="space-y-4">
-              <a href="mailto:patch@example.com" className="flex items-center gap-4 text-muted-foreground hover:text-neon-cyan transition-colors group">
-                <div className="w-12 h-12 rounded bg-cyber-navy border border-border group-hover:border-neon-cyan/50 flex items-center justify-center transition-colors">
+              <a href="mailto:patch@example.com" className="flex items-center gap-4 text-theme-muted1 hover:text-theme-blue transition-colors group">
+                <div className="w-12 h-12 bg-theme-bg border-[1.5px] border-theme-border group-hover:border-theme-blue flex items-center justify-center transition-colors">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">Email</p>
-                  <p className="text-sm">patch@example.com</p>
+                  <p className="font-bold text-theme-text text-sm uppercase tracking-widest">Email</p>
+                  <p className="text-sm font-sans">patch@example.com</p>
                 </div>
               </a>
               
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-neon-blue transition-colors group">
-                <div className="w-12 h-12 rounded bg-cyber-navy border border-border group-hover:border-neon-blue/50 flex items-center justify-center transition-colors">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-theme-muted1 hover:text-theme-blue transition-colors group">
+                <div className="w-12 h-12 bg-theme-bg border-[1.5px] border-theme-border group-hover:border-theme-blue flex items-center justify-center transition-colors">
                   <Github className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">GitHub</p>
-                  <p className="text-sm">github.com/patch-cyber</p>
+                  <p className="font-bold text-theme-text text-sm uppercase tracking-widest">GitHub</p>
+                  <p className="text-sm font-sans">github.com/patch-cyber</p>
                 </div>
               </a>
               
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-neon-cyan transition-colors group">
-                <div className="w-12 h-12 rounded bg-cyber-navy border border-border group-hover:border-neon-cyan/50 flex items-center justify-center transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-theme-muted1 hover:text-theme-blue transition-colors group">
+                <div className="w-12 h-12 bg-theme-bg border-[1.5px] border-theme-border group-hover:border-theme-blue flex items-center justify-center transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">LinkedIn</p>
-                  <p className="text-sm">linkedin.com/in/patch-cyber</p>
+                  <p className="font-bold text-theme-text text-sm uppercase tracking-widest">LinkedIn</p>
+                  <p className="text-sm font-sans">linkedin.com/in/patch-cyber</p>
                 </div>
               </a>
             </div>
           </div>
           
-          <div className="p-6 rounded-lg bg-cyber-navy border border-border border-dashed font-mono text-sm text-muted-foreground">
-            <p className="text-neon-cyan mb-2">GPG Public Key (Snippet)</p>
-            <p className="break-all opacity-70">
+          <div className="p-6 bg-theme-bg border border-theme-border border-dashed font-mono text-sm text-theme-muted2">
+            <p className="text-theme-blue mb-2 uppercase tracking-widest text-xs">GPG Public Key (Snippet)</p>
+            <p className="break-all">
               -----BEGIN PGP PUBLIC KEY BLOCK-----<br/>
               mQINBGB23bYBEAC9w9O8b6q...<br/>
               ...Contact me for the full key.
@@ -78,37 +78,37 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="cyber-card p-8 rounded-lg animate-fade-in-up delay-200">
+        <div className="bento-card p-8 group">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-foreground font-mono">Name</label>
+              <label htmlFor="name" className="text-xs font-bold text-theme-text uppercase tracking-widest">Name</label>
               <input 
                 type="text" 
                 id="name" 
                 required
-                className="w-full px-4 py-3 bg-background border border-border rounded focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors text-foreground"
+                className="w-full px-4 py-3 bg-theme-bg border-[1.5px] border-theme-border rounded-[4px] focus:outline-none focus:border-theme-blue transition-colors text-theme-text font-sans"
                 placeholder="John Doe"
               />
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-foreground font-mono">Email</label>
+              <label htmlFor="email" className="text-xs font-bold text-theme-text uppercase tracking-widest">Email</label>
               <input 
                 type="email" 
                 id="email" 
                 required
-                className="w-full px-4 py-3 bg-background border border-border rounded focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors text-foreground"
+                className="w-full px-4 py-3 bg-theme-bg border-[1.5px] border-theme-border rounded-[4px] focus:outline-none focus:border-theme-blue transition-colors text-theme-text font-sans"
                 placeholder="john@example.com"
               />
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium text-foreground font-mono">Message payload</label>
+              <label htmlFor="message" className="text-xs font-bold text-theme-text uppercase tracking-widest">Message payload</label>
               <textarea 
                 id="message" 
                 rows={5}
                 required
-                className="w-full px-4 py-3 bg-background border border-border rounded focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors text-foreground resize-none"
+                className="w-full px-4 py-3 bg-theme-bg border-[1.5px] border-theme-border rounded-[4px] focus:outline-none focus:border-theme-blue transition-colors text-theme-text resize-none font-sans"
                 placeholder="Enter your message here..."
               ></textarea>
             </div>
@@ -116,7 +116,7 @@ export default function Contact() {
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="w-full py-3 px-4 bg-neon-blue/10 hover:bg-neon-blue/20 text-neon-blue border border-neon-blue rounded font-mono font-bold transition-all flex items-center justify-center gap-2 hover:glow-border disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 px-4 bg-theme-card hover:bg-theme-blueHover text-theme-text hover:text-theme-blue border-[1.5px] border-theme-border hover:border-theme-blueBorder rounded-[4px] font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>Processing...</>

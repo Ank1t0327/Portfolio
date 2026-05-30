@@ -4,13 +4,11 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Skills', path: '/skills' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Labs', path: '/labs' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'HOME', path: '/' },
+  { name: 'WORK', path: '/projects' },
+  { name: 'LAB', path: '/labs' },
+  { name: 'BLOG', path: '/blog' },
+  { name: 'HEY', path: '/contact' },
 ];
 
 export function Navbar() {
@@ -20,12 +18,12 @@ export function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-xl border-b border-white/5">
+    <nav className="w-full z-50 bg-theme-bg border-b-[1.5px] border-theme-border relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0 flex items-center">
-            <NavLink to="/" className="text-xl font-bold tracking-tight text-foreground hover:opacity-80 transition-opacity">
-              Patch<span className="text-brand-purple">.</span>
+            <NavLink to="/" className="text-2xl font-bold tracking-tight text-theme-text transition-opacity">
+              patch<span className="text-theme-blue">.</span>
             </NavLink>
           </div>
           
@@ -37,10 +35,10 @@ export function Navbar() {
                   <NavLink
                     key={link.name}
                     to={link.path}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative ${
+                    className={`px-3 py-2 text-sm font-bold uppercase tracking-widest transition-all duration-150 relative ${
                       isActive 
-                        ? 'text-foreground bg-white/10' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
+                        ? 'text-theme-text border-b-2 border-theme-blue' 
+                        : 'text-theme-muted1 hover:text-theme-text'
                     }`}
                   >
                     {link.name}
@@ -53,7 +51,7 @@ export function Navbar() {
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/5 focus:outline-none transition-colors"
+              className="inline-flex items-center justify-center p-2 text-theme-muted1 hover:text-theme-text focus:outline-none transition-colors"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -68,7 +66,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
+            className="md:hidden bg-theme-bg border-b-[1.5px] border-theme-border overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
               {NAV_LINKS.map((link) => {
@@ -78,10 +76,10 @@ export function Navbar() {
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                    className={`block px-4 py-3 text-base font-bold uppercase tracking-widest transition-all ${
                       isActive 
-                        ? 'text-foreground bg-white/10' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-white/5'
+                        ? 'text-theme-text bg-theme-blue/10 border-l-4 border-theme-blue' 
+                        : 'text-theme-muted1 hover:text-theme-text hover:bg-theme-card'
                     }`}
                   >
                     {link.name}

@@ -2,13 +2,13 @@ import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/5 py-12 relative z-10">
+    <footer className="mt-auto border-t-[1.5px] border-theme-border py-12 relative z-10 bg-theme-bg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            Patch<span className="text-brand-purple">.</span>
+          <span className="text-lg font-bold tracking-tight text-theme-text uppercase">
+            patch<span className="text-theme-blue">.</span>
           </span>
-          <span className="text-muted-foreground text-sm">© {new Date().getFullYear()} All rights reserved.</span>
+          <span className="text-theme-muted2 text-sm uppercase-label tracking-widest">© {new Date().getFullYear()} ALL RIGHTS RESERVED.</span>
         </div>
         
         <div className="flex space-x-6">

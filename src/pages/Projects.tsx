@@ -57,19 +57,19 @@ export default function Projects() {
     <PageTransition className="py-8 space-y-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div className="space-y-4 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">Projects Gallery</h1>
-          <p className="text-xl text-muted-foreground font-light max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-theme-text uppercase">Projects Gallery</h1>
+          <p className="text-xl text-theme-muted1 font-light max-w-2xl font-sans">
             Tools, scripts, and architectures I've built in the lab.
           </p>
         </div>
         
         <div className="relative w-full md:w-80 shrink-0">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <Search className="h-4 w-4 text-muted-foreground" />
+            <Search className="h-4 w-4 text-theme-muted1" />
           </div>
           <input
             type="text"
-            className="block w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-full leading-5 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand-purple/50 focus:border-transparent transition-all backdrop-blur-sm"
+            className="block w-full pl-11 pr-4 py-3 bg-theme-card border-[1.5px] border-theme-border rounded-[4px] leading-5 text-theme-text placeholder-theme-muted2 focus:outline-none focus:border-theme-blue transition-colors"
             placeholder="Search projects..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -79,53 +79,53 @@ export default function Projects() {
 
       <div className="grid md:grid-cols-2 gap-8">
         {filteredProjects.map((project, index) => (
-          <div key={project.id} className="bento-card overflow-hidden flex flex-col group animate-fade-in-up p-0" style={{ animationDelay: `${index * 100}ms` }}>
-            <div className="relative h-72 overflow-hidden w-full">
-              <div className="absolute inset-0 bg-background/30 z-10 group-hover:bg-background/10 transition-colors duration-500"></div>
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" />
+          <div key={project.id} className="bento-card overflow-hidden flex flex-col group p-0">
+            <div className="relative h-72 overflow-hidden w-full border-b-[1.5px] border-theme-border">
+              <div className="absolute inset-0 bg-theme-bg/30 z-10 group-hover:bg-theme-bg/10 transition-colors"></div>
+              <img src={project.image} alt={project.title} className="w-full h-full object-cover transform opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
               
               {project.featured && (
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="px-3 py-1.5 text-xs font-bold bg-brand-purple/90 text-white rounded-full backdrop-blur-md shadow-lg">
+                  <span className="px-3 py-1 text-[10px] font-bold bg-theme-bg text-theme-blue border border-theme-blue uppercase tracking-widest">
                     Featured
                   </span>
                 </div>
               )}
 
               {/* Hover Overlay with Tech Stack */}
-              <div className="absolute inset-0 bg-background/90 backdrop-blur-sm z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-8 flex flex-col justify-center items-center text-center">
-                <p className="text-lg text-foreground mb-6 font-light leading-relaxed max-w-sm">
+              <div className="absolute inset-0 bg-theme-bg/90 z-30 opacity-0 group-hover:opacity-100 transition-opacity p-8 flex flex-col justify-center items-center text-center">
+                <p className="text-sm text-theme-text mb-6 font-sans leading-relaxed max-w-sm">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 mb-8">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 text-sm bg-white/10 text-white border border-white/20 rounded-full font-mono">
+                    <span key={tag} className="px-3 py-1 text-[10px] uppercase tracking-widest text-theme-text border border-theme-border font-mono bg-theme-card">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-foreground hover:text-brand-purple transition-colors bg-white/10 px-4 py-2 rounded-full hover:bg-white/20">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-theme-text border border-theme-border hover:bg-theme-blueHover hover:border-theme-blue hover:text-theme-blue transition-colors px-4 py-2 uppercase tracking-widest">
                       <Github className="h-4 w-4" />
-                      View Source
+                      SOURCE
                     </a>
                   )}
                   {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-background hover:text-white transition-colors bg-brand-teal px-4 py-2 rounded-full hover:bg-brand-teal/80">
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-theme-text border border-theme-border hover:bg-theme-blueHover hover:border-theme-blue hover:text-theme-blue transition-colors px-4 py-2 uppercase tracking-widest">
                       <ExternalLink className="h-4 w-4" />
-                      Live Demo
+                      DEMO
                     </a>
                   )}
                 </div>
               </div>
             </div>
             
-            <div className="p-6 bg-card border-t border-white/5 relative z-20 flex justify-between items-center group-hover:bg-white/5 transition-colors">
-              <h3 className="text-2xl font-bold text-foreground group-hover:text-brand-teal transition-colors">
+            <div className="p-6 bg-theme-card relative z-20 flex justify-between items-center group-hover:bg-theme-blueHover transition-colors">
+              <h3 className="text-xl font-bold text-theme-text uppercase tracking-widest group-hover:text-theme-blue transition-colors">
                 {project.title}
               </h3>
-              <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+              <ExternalLink className="h-5 w-5 text-theme-muted1 group-hover:text-theme-blue transition-colors" />
             </div>
           </div>
         ))}

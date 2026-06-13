@@ -1,118 +1,62 @@
-export interface ActiveProject {
+export interface Investigation {
   id: string;
   name: string;
-  status: 'ACTIVE' | 'TESTING';
-  category: string;
+  status: 'ACTIVE' | 'TESTING' | 'COMPLETED' | 'ARCHIVED';
   description: string;
-  technologies: string[];
-  lastUpdated: string;
   url: string;
 }
 
-export interface Experiment {
-  id: string;
-  objective: string;
-  findings: string;
-  status: 'ACTIVE' | 'TESTING' | 'COMPLETED';
-  url: string;
-}
-
-export interface ArchivedOperation {
-  id: string;
-  title: string;
-  completionDate: string;
-  technologies: string[];
-  summary: string;
-  url: string;
-}
-
-export const activeProjects: ActiveProject[] = [
-  {
-    id: "statewatch",
-    name: "StateWatch",
-    status: "ACTIVE",
-    category: "Linux Monitoring Tool",
-    description: "A lightweight, real-time Linux system monitoring dashboard using only Bash.",
-    technologies: ["Bash", "Linux", "Coreutils"],
-    lastUpdated: "2024-05-20",
-    url: "#"
-  },
-  {
-    id: "mirrorix",
-    name: "Mirrorix",
-    status: "ACTIVE",
-    category: "Package Management",
-    description: "A cross-distribution package mirror management and phone mirroring utility.",
-    technologies: ["Bash", "Linux"],
-    lastUpdated: "2024-05-20",
-    url: "#"
-  },
-  {
-    id: "portfolio",
-    name: "Portfolio Infrastructure",
-    status: "ACTIVE",
-    category: "Web Development",
-    description: "Building a cyber-aesthetic, high-performance portfolio site.",
-    technologies: ["React", "TypeScript", "TailwindCSS"],
-    lastUpdated: "2024-06-12",
-    url: "#"
-  }
-];
-
-export const experiments: Experiment[] = [
-  {
-    id: "win11-vm",
-    objective: "Windows 11 Virtual Machine Lab",
-    findings: "Configured secure isolated VM for dynamic malware analysis with full event logging enabled.",
-    status: "COMPLETED",
-    url: "#"
-  },
+export const currentInvestigations: Investigation[] = [
   {
     id: "linux-monitoring",
-    objective: "Linux Resource Monitoring Research",
-    findings: "Experimenting with /proc file descriptors for efficient real-time metrics gathering without external dependencies.",
+    name: "Linux Resource Monitoring Research",
     status: "ACTIVE",
+    description: "Investigating efficient collection of Linux system metrics using /proc and native shell tools.",
     url: "#"
   },
   {
     id: "bash-automation",
-    objective: "Bash Automation Experiments",
-    findings: "Testing reliable cron-based scheduling for custom scripts and investigating error handling patterns.",
+    name: "Bash Automation Experiments",
     status: "TESTING",
-    url: "#"
-  },
-  {
-    id: "network-traffic",
-    objective: "Network Traffic Analysis",
-    findings: "Simulating beaconing behavior and analyzing the resulting PCAP with Wireshark and Zeek.",
-    status: "COMPLETED",
+    description: "Exploring automation workflows, cron scheduling, error handling, and recovery patterns.",
     url: "#"
   }
 ];
 
-export const archivedOperations: ArchivedOperation[] = [
+export const labArchives: Investigation[] = [
+  {
+    id: "win11-vm",
+    name: "Windows 11 Virtual Machine Lab",
+    status: "COMPLETED",
+    description: "Built an isolated virtualized environment for testing, analysis, and operating system research.",
+    url: "#"
+  },
+  {
+    id: "network-traffic",
+    name: "Network Traffic Analysis",
+    status: "COMPLETED",
+    description: "Analyzed packet captures and communication patterns using Wireshark and Zeek.",
+    url: "#"
+  },
   {
     id: "linux-hardening",
-    title: "Linux Hardening Study",
-    completionDate: "May 2024",
-    technologies: ["Ubuntu", "UFW", "Fail2Ban", "SSH"],
-    summary: "A step-by-step walkthrough of securing a fresh Ubuntu 22.04 server, including setting up UFW, Fail2Ban, and disabling root SSH access.",
+    name: "Linux Hardening Study",
+    status: "ARCHIVED",
+    description: "Research and implementation of practical Linux security hardening techniques.",
     url: "#"
   },
   {
     id: "disk-monitoring",
-    title: "Disk Monitoring Prototype",
-    completionDate: "April 2024",
-    technologies: ["Bash", "df", "awk"],
-    summary: "Built a prototype script for detecting sudden I/O spikes and space exhaustion on critical partitions.",
+    name: "Disk Monitoring Prototype",
+    status: "ARCHIVED",
+    description: "Early prototype that later influenced StateWatch's resource monitoring architecture.",
     url: "#"
   },
   {
     id: "system-metrics",
-    title: "System Metrics Collection Research",
-    completionDate: "April 2024",
-    technologies: ["Linux", "Sysstat"],
-    summary: "Investigated optimal intervals and methods for collecting non-intrusive system metrics across varying loads.",
+    name: "System Metrics Collection Research",
+    status: "ARCHIVED",
+    description: "Investigated efficient approaches for gathering performance metrics under varying workloads.",
     url: "#"
   }
 ];

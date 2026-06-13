@@ -7,7 +7,7 @@ export function Layout() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-background relative overflow-x-hidden">
       {/* Clean background, no aurora mesh */}
 
       <div className="relative z-10 flex flex-col min-h-screen">

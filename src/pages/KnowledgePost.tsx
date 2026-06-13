@@ -338,8 +338,11 @@ export default function KnowledgePost() {
         </div>
       </article>
 
-      <aside className="hidden lg:block">
-        <div className="sticky top-24 border border-theme-border bg-theme-card/80 p-5">
+      <aside className="hidden lg:block w-[280px]" aria-label="Article table of contents">
+        <div
+          className="fixed top-24 z-20 w-[280px] max-h-[calc(100vh-7rem)] overflow-y-auto border border-theme-border bg-theme-card/90 p-5"
+          style={{ right: 'max(2rem, calc((100vw - 80rem) / 2 + 2rem))' }}
+        >
           <div className="mb-5 flex items-center gap-2 border-b border-theme-border pb-4 font-mono text-xs font-bold uppercase tracking-[0.22em] text-theme-text">
             <BookOpen className="h-4 w-4 text-theme-blue" />
             On This Page

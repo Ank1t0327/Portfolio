@@ -48,6 +48,10 @@
     letter-spacing: -0.01em;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   h1, h2, h3, h4, h5, h6, .uppercase-label {
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -135,6 +139,50 @@
 @layer components {
   .animate-fade-in-up {
     animation: fade-in-up 0.5s ease-out forwards;
+  }
+
+  .knowledge-prose {
+    color: theme('colors.theme.text');
+  }
+
+  .knowledge-prose > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .knowledge-prose p + p {
+    margin-top: 1.25rem;
+  }
+
+  .knowledge-h2 {
+    margin-top: 4.75rem;
+    border-top: 1px solid theme('colors.theme.border');
+    padding-top: 2rem;
+    font-family: theme('fontFamily.mono');
+    font-size: clamp(1.85rem, 3vw, 2.65rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: theme('colors.theme.text');
+  }
+
+  .knowledge-prose > .knowledge-h2:first-child {
+    margin-top: 0;
+  }
+
+  .knowledge-h2::before {
+    content: "# ";
+    color: theme('colors.theme.blue');
+  }
+
+  .knowledge-h3 {
+    margin-top: 3.25rem;
+    border-left: 3px solid theme('colors.theme.blue');
+    background: rgba(74, 127, 165, 0.06);
+    padding: 0.7rem 0.95rem;
+    font-family: theme('fontFamily.mono');
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: theme('colors.theme.text');
   }
 }
 

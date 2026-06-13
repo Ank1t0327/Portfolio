@@ -11,6 +11,9 @@ export default function Knowledge() {
     getAllKnowledgeNotes().then((data) => {
       setNotes(data);
       setLoading(false);
+    }).catch(err => {
+      console.error(err);
+      setLoading(false);
     });
   }, []);
 

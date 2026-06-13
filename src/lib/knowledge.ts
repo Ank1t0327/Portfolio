@@ -1,5 +1,3 @@
-import matter from 'gray-matter';
-
 export interface KnowledgeNote {
   slug: string;
   category: string;
@@ -10,13 +8,33 @@ export interface KnowledgeNote {
   content: string;
 }
 
+function parseFrontmatter(markdown: string) {
+  const match = /^\s*---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(markdown);
+  if (!match) return { data: {}, content: markdown };
+  
+  const data: Record<string, string> = {};
+  match[1].split('\n').forEach(line => {
+    const colonIdx = line.indexOf(':');
+    if (colonIdx > -1) {
+      const key = line.slice(0, colonIdx).trim();
+      let value = line.slice(colonIdx + 1).trim();
+      if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+      data[key] = value;
+    }
+  });
+  
+  return { data, content: match[2] };
+}
+
 export async function getAllKnowledgeNotes(): Promise<KnowledgeNote[]> {
   const modules = import.meta.glob('/src/content/knowledge/**/*.md', { query: '?raw', import: 'default' });
   const notes: KnowledgeNote[] = [];
 
   for (const path in modules) {
     const rawContent = await modules[path]();
-    const { data, content } = matter(rawContent as string);
+    const { data, content } = parseFrontmatter(rawContent as string);
     
     const pathParts = path.split('/');
     const slug = pathParts.pop()?.replace('.md', '') || '';

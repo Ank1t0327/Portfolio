@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -17,6 +17,9 @@ export default function KnowledgePost() {
     if (category && slug) {
       getKnowledgeNote(category, slug).then((data) => {
         setNote(data);
+        setLoading(false);
+      }).catch(err => {
+        console.error(err);
         setLoading(false);
       });
     }
@@ -85,7 +88,7 @@ export default function KnowledgePost() {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ node, inline, className, children, ...props }: any) {
+              code({ node, inline, className, children, ...props }: { node?: any, inline?: boolean, className?: string, children?: ReactNode, [key: string]: any }) {
                 const match = /language-(\w+)/.exec(className || '');
                 return !inline && match ? (
                   <SyntaxHighlighter

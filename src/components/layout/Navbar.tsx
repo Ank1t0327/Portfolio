@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { name: 'HOME', path: '/' },
   { name: 'WORK', path: '/projects' },
   { name: 'LAB', path: '/labs' },
+  { name: 'KNOWLEDGE', path: '/knowledge' },
   { name: 'BLOG', path: '/blog' },
   { name: 'HEY', path: '/contact' },
 ];

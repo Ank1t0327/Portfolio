@@ -1,0 +1,43 @@
+// Dev Storm removed per update — certifications now featured separately
+export const achievements = [
+  {
+    id: 'leetcode',
+    title: 'LeetCode',
+    subtitle: '150+ Problems Solved',
+    description: 'Solved 150+ problems across arrays, strings, trees, and dynamic programming. Focused on building strong DSA fundamentals.',
+    icon: 'Code2',
+    color: '#F7A800',
+    focusAreas: ['Arrays', 'Strings', 'Trees', 'Dynamic Programming', 'Core DSA'],
+    date: null,
+  },
+  {
+    id: 'ctf',
+    title: 'CTF Practice',
+    subtitle: '150+ Challenges',
+    description: 'Practiced across multiple CTF platforms including picoCTF. Challenges span web exploitation, cryptography, forensics, and binary analysis.',
+    icon: 'Flag',
+    color: '#164B35',
+    note: 'Statistic subject to verification',
+    platforms: ['picoCTF', 'Various Practice Platforms'],
+    date: null,
+  },
+  {
+    id: 'secplus',
+    title: 'CompTIA Security+',
+    subtitle: 'Preparation In Progress',
+    description: 'Currently preparing for the CompTIA Security+ certification. Covering security fundamentals, threat analysis, cryptography, and risk management.',
+    icon: 'ShieldCheck',
+    color: '#E8355A',
+    status: 'in-progress',
+    date: null,
+  },
+  {
+    id: 'redhat',
+    title: 'Red Hat Linux Training',
+    subtitle: 'RHEL — Completed',
+    description: 'Completed hands-on Red Hat Enterprise Linux training through university, covering system administration, file systems, networking, and service management.',
+    icon: 'Terminal',
+    color: '#CC0000',
+    date: null,
+  },
+];
